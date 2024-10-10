@@ -3,46 +3,46 @@ const btn_left = document.querySelector('#btn_left')
 const btn_stop = document.querySelector('#btn_stop')
 const btn_right = document.querySelector('#btn_right')
 const btn_down = document.querySelector('#btn_down')
-const carro = document.querySelector('#carro')
+const caixa = document.querySelector('#caixa')
 const botoes = document.querySelector('#botoes')
 
 let anima = null
 let larguraTela = 0
 let alturaTela = 0
-let tamCarro = 0
+let tamCaixa = 0
 
 const init = () => {
-    carro.style.position = 'relative'
-    carro.style.left = '0px'
-    carro.style.top = '0px'
-    carro.style.width = '50px'
-    carro.style.height = ' 50px'
+    caixa.style.position = 'relative'
+    caixa.style.left = '0px'
+    caixa.style.top = '0px'
+    caixa.style.width = '50px'
+    caixa.style.height = ' 50px'
     botoes.style.height = '200px'
-    tamCarro = parseInt(carro.style.width)
-    larguraTela = window.innerWidth - tamCarro
-    alturaTela = window.innerHeight - tamCarro - parseInt(botoes.style.height)
+    tamCaixa = parseInt(caixa.style.width)
+    larguraTela = window.innerWidth - tamCaixa
+    alturaTela = window.innerHeight - tamCaixa - parseInt(botoes.style.height)
 }
 
 const moverHorizontal = (dir) => {
-    if(parseInt(carro.style.left) >= larguraTela) {
+    if(parseInt(caixa.style.left) >= larguraTela) {
         dir = -1
-    }else if(parseInt(carro.style.left) <= 0) {
+    }else if(parseInt(caixa.style.left) <= 0) {
         dir = 1
     }
 
-    carro.style.left = `${parseInt(carro.style.left) + (10*dir)}px`
+    caixa.style.left = `${parseInt(caixa.style.left) + (10*dir)}px`
 
     anima = setTimeout(moverHorizontal, 20, dir)
 }
 
 const moverVertical = (dir) => {
-    if(parseInt(carro.style.top) >= alturaTela) {
+    if(parseInt(caixa.style.top) >= alturaTela) {
         dir = -1
-    }else if(parseInt(carro.style.top) <= 0) {
+    }else if(parseInt(caixa.style.top) <= 0) {
         dir = 1
     }
 
-    carro.style.top = `${parseInt(carro.style.top) + (10*dir)}px`
+    caixa.style.top = `${parseInt(caixa.style.top) + (10*dir)}px`
 
     anima = setTimeout(moverVertical, 20, dir)
 }
